@@ -227,3 +227,31 @@ footer p {
 .atag {
     text-decoration: none;
 }
+
+.username {
+    font-size: 25px;
+}
+
+@media screen and (min-width: 800px) {
+    .username {
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .username {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .username {
+        font-size: 17px;
+    }
+}
+
+@media screen and (max-width: 325px) {
+    .username {
+        font-size: 15px;
+    }
+}

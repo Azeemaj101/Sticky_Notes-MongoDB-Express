@@ -47,10 +47,12 @@
         </div>
         <% } %>
             <nav class="navbar navbar-expand-sm nclr d-flex justify-content-center">
-                <div class="container-fluid fw-bold text-uppercase fs-3 d-flex justify-content-center">
-                    <%- session.UserData[0].Name %> - NOTEBOOK
+                <div class="container-fluid fw-bold text-uppercase d-flex justify-content-center align-items-center">
+                    <span class="d-flex justify-content-center align-items-center username"><%- session.UserData[0].Name %> - NOTEBOOK&nbsp
+                        <ion-icon name="bookmarks" class="note"></ion-icon>
+                        </span>
                 </div>
-                <button class="mbtn m-2" onclick="ab()">Logout</button>
+                <button class="mbtn m-2 d-flex justify-content-center align-items-center" onclick="ab()"><ion-icon name="power" class= "fs-6"></ion-icon>&nbspLogout</button>
             </nav>
             <div class=" form-switch text-light fw-bold mt-3 mx-3 d-flex justify-content-end px-2">
                 <input class="form-check-input" onChange=Mode() type="checkbox" id="agreed">&nbsp&nbsp <span id="text" class="text">Dark Mode </span>
@@ -58,6 +60,7 @@
             <main class="d-flex flex-column justify-content-center m-3">
 
                 <div class="fs-3 lgt fw-bold text-center">
+                    <ion-icon name="add-circle-outline" class="icon"></ion-icon>
                     ADD NOTE
                 </div>
                 <div class="d-flex justify-content-center">
@@ -68,16 +71,19 @@
                         <div class="mb-3">
                             <textarea class="form-control" id="a" name="desc" minlength="5" required placeholder="Leave a note here"></textarea>
                         </div>
-                        <button type="submit" onclick="divide()" class="mbtn">Save</button>
+                        <div class="d-flex justify-content-center">
+                            <button type="submit" onclick="divide()" class="mbtn d-flex justify-content-center align-items-center"><ion-icon name="save" class="icon"></ion-icon>&nbspSave</button>
+                        </div>
                     </form>
                 </div>
-                <div class="d-flex justify-content-end lgt fs-6 fw-bold mx-3">
-                    Session-End in&nbsp<span id="time"></span>&nbspMinutes
+                <div class="d-flex justify-content-end align-items-center lgt fs-6 fw-bold mx-3">
+                    <ion-icon name="time" class="icon"></ion-icon>&nbspSession-End in&nbsp<span id="time"></span>&nbspMinutes
                 </div>
             </main>
             <div class="card-header fw-bold">
             </div>
             <div class="text-center  fs-3 fw-bold lgt">
+                <ion-icon name="eye" class="icon"></ion-icon>
                 All NOTES
             </div>
             <section class="d-flex justify-content-center flex-wrap cardm mb-2">
@@ -212,6 +218,10 @@
                         document.getElementsByClassName("icon")[0].classList.add("icon1");
                         document.getElementsByClassName("icon")[1].classList.add("icon1");
                         document.getElementsByClassName("icon")[2].classList.add("icon1");
+                        document.getElementsByClassName("icon")[3].classList.add("icon1");
+                        document.getElementsByClassName("icon")[4].classList.add("icon1");
+                        document.getElementsByClassName("icon")[5].classList.add("icon1");
+                        document.getElementsByClassName("icon")[6].classList.add("icon1");
                         document.getElementById("text").innerText = "Light Mode";
                         document.getElementsByClassName("text")[0].classList.add("text1");
                         document.getElementsByClassName("foot")[0].classList.add("foot1");
@@ -233,6 +243,10 @@
                         document.getElementsByClassName("icon")[0].classList.remove("icon1");
                         document.getElementsByClassName("icon")[1].classList.remove("icon1");
                         document.getElementsByClassName("icon")[2].classList.remove("icon1");
+                        document.getElementsByClassName("icon")[3].classList.remove("icon1");
+                        document.getElementsByClassName("icon")[4].classList.remove("icon1");
+                        document.getElementsByClassName("icon")[5].classList.remove("icon1");
+                        document.getElementsByClassName("icon")[6].classList.remove("icon1");
                         document.getElementsByClassName("foot")[0].classList.remove("foot1");
                         document.getElementById("text").innerText = "Dark Mode";
                         document.getElementsByClassName("text")[0].classList.remove("text1");
@@ -257,6 +271,10 @@
                     document.getElementsByClassName("icon")[0].classList.add("icon1");
                     document.getElementsByClassName("icon")[1].classList.add("icon1");
                     document.getElementsByClassName("icon")[2].classList.add("icon1");
+                    document.getElementsByClassName("icon")[3].classList.add("icon1");
+                    document.getElementsByClassName("icon")[4].classList.add("icon1");
+                    document.getElementsByClassName("icon")[5].classList.add("icon1");
+                    document.getElementsByClassName("icon")[6].classList.add("icon1");
                     document.getElementsByClassName("foot")[0].classList.add("foot1");
                     document.getElementById("text").innerText = "Light Mode";
                     document.getElementsByClassName("text")[0].classList.add("text1");
