@@ -200,7 +200,7 @@ footer p {
 .icon:hover {
     width: 21px;
     height: 21px;
-    color: rgb(0, 0, 0);
+    color: coral;
 }
 
 .foo {
@@ -221,7 +221,7 @@ footer p {
 .icon1:hover {
     width: 21px;
     height: 21px;
-    color: rgb(255, 255, 255);
+    color: coral;
 }
 
 .atag {
