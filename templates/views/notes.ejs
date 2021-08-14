@@ -56,8 +56,9 @@
                 <input class="form-check-input" onChange=Mode() type="checkbox" id="agreed"> <span id="text" class="text">&nbsp&nbspDark Mode </span>
             </div>
             <main class="d-flex flex-column justify-content-center m-3">
+
                 <div class="fs-3 lgt fw-bold text-center">
-                    ADD DATA
+                    ADD NOTE
                 </div>
                 <div class="d-flex justify-content-center">
                     <form class="insertform p-3 text-center" method="POST" action="/submit">
@@ -74,8 +75,10 @@
                     Session-End in&nbsp<span id="time"></span>&nbspMinutes
                 </div>
             </main>
+            <div class="card-header fw-bold">
+            </div>
             <div class="text-center  fs-3 fw-bold lgt">
-                All DATA
+                All NOTES
             </div>
             <section class="d-flex justify-content-center flex-wrap cardm mb-2">
                 <% for(let i = 0; i< session.UserData[0].data.length; i++ ){ %>
