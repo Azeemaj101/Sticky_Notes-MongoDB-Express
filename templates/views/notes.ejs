@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="public/sticky-notes.png" type="image/x-icon">
+    <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="public/notes.css">
+    <title>
+        <%- session.UserData[0].Name %> - Notes</title>
+</head>
+
+<body>
+    <!-- Modal -->
+    <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content text-light bg-dark modald1 ">
+                <div class="modal-header">
+                    <h5 class="modal-title lgt fw-bold" id="exampleModalLabel">Edit Record</h5>
+                    <button type="button" class="btn-close bg-danger rounded-pill" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="editform p-3 text-center" method="POST" action="/nupdate">
+                        <input type="hidden" id="a0" name="id">
+                        <div class="mb-3">
+                            <input type="text" class="form-control " id="a2" minlength="5" required placeholder="Title" name="title1">
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" id="a1" name="desc1" minlength="5" required placeholder="Leave a note here"></textarea>
+                        </div>
+                        <button type="submit" onclick="divide1()" class="mbtn lgt">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <% if(chk == 1){ %>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Not Found!</strong> This UserName is not Found. Please SignUp First
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <% } %>
+            <nav class="navbar navbar-expand-sm nclr d-flex justify-content-center">
+                <div class="container-fluid fw-bold text-uppercase fs-3 d-flex justify-content-center">
+                    <%- session.UserData[0].Name %> - NOTEBOOK
+                </div>
+                <button class="mbtn m-2" onclick="ab()">Logout</button>
+            </nav>
+            <div class="mb-3 form-switch text-light fw-bold m-3 d-flex justify-content-end p-2">
+                <input class="form-check-input" onChange=Mode() type="checkbox" id="agreed"> <span id="text" class="text">&nbsp&nbspDark Mode </span>
+            </div>
+            <main class="d-flex flex-column justify-content-center m-3">
+                <div class="fs-3 lgt fw-bold text-center">
+                    ADD DATA
+                </div>
+                <div class="d-flex justify-content-center">
+                    <form class="insertform p-3 text-center" method="POST" action="/submit">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" minlength="5" required placeholder="Title" name="title">
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" id="a" name="desc" minlength="5" required placeholder="Leave a note here"></textarea>
+                        </div>
+                        <button type="submit" onclick="divide()" class="mbtn">Save</button>
+                    </form>
+                </div>
+                <div class="d-flex justify-content-end lgt fs-6 fw-bold mx-3">
+                    Session-End in&nbsp<span id="time"></span>&nbspMinutes
+                </div>
+            </main>
+            <div class="text-center  fs-3 fw-bold lgt">
+                All DATA
+            </div>
+            <section class="d-flex justify-content-center flex-wrap cardm mb-2">
+                <% for(let i = 0; i< session.UserData[0].data.length; i++ ){ %>
+                    <div class="card text-white clr m-2 text-center pb-2" style="max-width: 18rem; min-width: 18rem; max-height: 28rem; min-height: 10rem;">
+                        <div class="card-header fw-bold">Title &#8594
+                            <%- session.UserData[0].data[i].title %>
+                        </div>
+
+                        <div class="card-body">
+                            <p class="card-text ">
+
+                                <%- session.UserData[0].data[i].desc%>.
+                            </p>
+                        </div>
+                        <div>
+                            <button type="button" class="btnm mx-1 dsm" value="<%- session.UserData[0].data[i].title %>,<%- session.UserData[0].data[i].desc%>" id=<%-i%> onclick="ab2(this.value,this.id)" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                Edit
+                              </button>
+                            <button class="btnm" onclick="ab1(this.id)" id=<%-i%>>Delete</button>
+                        </div>
+                    </div>
+                    <% } %>
+                        <% if(session.UserData[0].data.length === 0) { %>
+                            <div class="border border-light bg-danger rounded px-5 py-2 fs-4 fw-bold mt-3 ">
+                                Empty!
+                            </div>
+                            <% } %>
+            </section>
+
+            <footer class="d-flex justify-content-center flex-column align-items-center foot pt-1">
+                <div class="fw-bold d-flex justify-content-center foo">
+                    Copyright © 2021
+                    <% if (year !== 2021) {%>
+                        -
+                        <%- year %>
+                            <% } %>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <a href="https://github.com/Azeemaj101" class="atag ml-2" target="_blank" rel="noopener noreferrer">
+                        <ion-icon name="logo-github" class="icon"></ion-icon>
+                    </a>
+                    <a href="https://www.facebook.com/Azeemaj101/" class="atag mx-2" target="_blank" rel="noopener noreferrer">
+                        <ion-icon name="logo-facebook" class="icon"></ion-icon>
+                    </a>
+                    <a href="https://www.linkedin.com/in/azeemaj101/" class="atag" target="_blank" rel="noopener noreferrer">
+                        <ion-icon name="logo-linkedin" class="icon"></ion-icon>
+                    </a>
+                </div>
+            </footer>
+
+            <!-- Optional JavaScript; choose one of the two! -->
+
+            <!-- Option 1: Bootstrap Bundle with Popper -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+            <!-- Option 2: Separate Popper and Bootstrap JS -->
+            <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+-->
+            <script>
+                function ab() {
+
+                    window.location.href = "/logout"
+                }
+
+                function ab1(aa) {
+                    console.log(aa);
+                    window.location.href = `/delete/${aa}`;
+                }
+
+
+                function divide() {
+                    document.getElementById('a').value = document.getElementById('a').value.split("\n").join("<br>");
+                }
+
+                function divide1() {
+                    document.getElementById('a1').value = document.getElementById('a1').value.split("\n").join("<br>");
+                }
+                setInterval(function() {
+                    function diff_minutes(dt2, dt1) {
+
+                        var diff = (dt2.getTime() - dt1.getTime()) / 1000;
+                        diff /= 60;
+                        return Math.abs(Math.round(diff));
+
+                    }
+                    dt1 = new Date();
+                    dt1.setMinutes(dt1.getMinutes() + 20)
+
+                    if (localStorage.getItem("key") == null || localStorage.getItem("key") == "2765") {
+                        let a = localStorage.setItem("key", dt1);
+                    }
+                    let res = 20 - diff_minutes(dt1, new Date(localStorage.getItem("key")));
+                    if (res <= 0) {
+                        window.location.href = "/logout"
+                    }
+                    document.getElementById("time").innerText = res;
+                }, 1000);
+
+                function ab2(data, id) {
+                    // let a = document.getElementsByClassName("dsm")[0].value.split[];
+                    console.log(data.split(",")[1].split("<br>").join(" "));
+                    let a1 = document.getElementById("a1");
+                    let a2 = document.getElementById("a2");
+                    let a0 = document.getElementById("a0");
+                    a2.value = data.split(",")[0];
+                    if (data.split(",")[1].includes("<br>")) {
+                        a1.value = data.split(",")[1].split("<br>").join("\n");
+                    } else {
+                        a1.value = data.split(",")[1];
+                    }
+                    a0.value = id;
+                }
+
+                function Mode() {
+                    if (document.getElementById("agreed").checked == true) {
+                        document.body.classList.add("light")
+                        document.getElementsByClassName("nclr")[0].classList.add("nclr1");
+                        document.getElementsByClassName("mbtn")[0].classList.add("mbtn1");
+                        document.getElementsByClassName("mbtn")[1].classList.add("mbtn1");
+                        document.getElementsByClassName("mbtn")[2].classList.add("mbtn1");
+                        document.getElementsByClassName("lgt")[0].classList.add("lgt1");
+                        document.getElementsByClassName("lgt")[1].classList.add("lgt1");
+                        document.getElementsByClassName("lgt")[2].classList.add("lgt1");
+                        document.getElementsByClassName("lgt")[3].classList.add("lgt1");
+                        document.getElementsByClassName("lgt")[4].classList.add("lgt1");
+                        document.getElementsByClassName("cardm")[0].classList.add("cardm1");
+                        document.getElementsByClassName("modald1")[0].classList.add("modald");
+                        document.getElementsByClassName("foo")[0].classList.add("foo1");
+                        document.getElementsByClassName("icon")[0].classList.add("icon1");
+                        document.getElementsByClassName("icon")[1].classList.add("icon1");
+                        document.getElementsByClassName("icon")[2].classList.add("icon1");
+                        document.getElementById("text").innerText = "Light Mode";
+                        document.getElementsByClassName("text")[0].classList.add("text1");
+                        document.getElementsByClassName("foot")[0].classList.add("foot1");
+                        localStorage.setItem("key1", 1)
+                    } else if (document.getElementById("agreed").checked == false) {
+                        document.body.classList.remove("light")
+                        document.getElementsByClassName("nclr")[0].classList.remove("nclr1");
+                        document.getElementsByClassName("mbtn")[0].classList.remove("mbtn1");
+                        document.getElementsByClassName("mbtn")[1].classList.remove("mbtn1");
+                        document.getElementsByClassName("mbtn")[2].classList.remove("mbtn1");
+                        document.getElementsByClassName("lgt")[0].classList.remove("lgt1");
+                        document.getElementsByClassName("lgt")[1].classList.remove("lgt1");
+                        document.getElementsByClassName("lgt")[2].classList.remove("lgt1");
+                        document.getElementsByClassName("lgt")[3].classList.remove("lgt1");
+                        document.getElementsByClassName("lgt")[4].classList.remove("lgt1");
+                        document.getElementsByClassName("cardm")[0].classList.remove("cardm1");
+                        document.getElementsByClassName("modald1")[0].classList.remove("modald");
+                        document.getElementsByClassName("foo")[0].classList.remove("foo1");
+                        document.getElementsByClassName("icon")[0].classList.remove("icon1");
+                        document.getElementsByClassName("icon")[1].classList.remove("icon1");
+                        document.getElementsByClassName("icon")[2].classList.remove("icon1");
+                        document.getElementsByClassName("foot")[0].classList.remove("foot1");
+                        document.getElementById("text").innerText = "Dark Mode";
+                        document.getElementsByClassName("text")[0].classList.remove("text1");
+                        localStorage.setItem("key1", 0)
+                    }
+                }
+                if (localStorage.getItem("key1") == 1) {
+                    document.getElementById("agreed").checked = true;
+                    document.body.classList.add("light")
+                    document.getElementsByClassName("nclr")[0].classList.add("nclr1");
+                    document.getElementsByClassName("mbtn")[0].classList.add("mbtn1");
+                    document.getElementsByClassName("mbtn")[1].classList.add("mbtn1");
+                    document.getElementsByClassName("mbtn")[2].classList.add("mbtn1");
+                    document.getElementsByClassName("lgt")[0].classList.add("lgt1");
+                    document.getElementsByClassName("lgt")[1].classList.add("lgt1");
+                    document.getElementsByClassName("lgt")[2].classList.add("lgt1");
+                    document.getElementsByClassName("lgt")[3].classList.add("lgt1");
+                    document.getElementsByClassName("lgt")[4].classList.add("lgt1");
+                    document.getElementsByClassName("cardm")[0].classList.add("cardm1");
+                    document.getElementsByClassName("modald1")[0].classList.add("modald");
+                    document.getElementsByClassName("foo")[0].classList.add("foo1");
+                    document.getElementsByClassName("icon")[0].classList.add("icon1");
+                    document.getElementsByClassName("icon")[1].classList.add("icon1");
+                    document.getElementsByClassName("icon")[2].classList.add("icon1");
+                    document.getElementsByClassName("foot")[0].classList.add("foot1");
+                    document.getElementById("text").innerText = "Light Mode";
+                } else {
+                    document.getElementById("agreed").checked = false;
+                }
+            </script>
+</body>
+
+</html>

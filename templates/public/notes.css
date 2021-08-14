@@ -1,0 +1,231 @@
+* {
+    margin: 0%;
+    padding: 0%;
+}
+
+body {
+    background: rgb(72, 74, 88);
+    background: linear-gradient(0deg, rgba(72, 74, 88, 1) 0%, rgba(72, 74, 88, 1) 100%);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+
+/* width */
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+
+/* Track */
+
+ ::-webkit-scrollbar-track {
+    background-color: rgb(197, 197, 197);
+}
+
+
+/* Handle */
+
+ ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 20px;
+}
+
+
+/* Handle on hover */
+
+ ::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(148, 148, 148);
+}
+
+main {
+    background: rgb(62, 66, 94);
+    background: linear-gradient(0deg, rgba(62, 66, 94, 0.35477941176470584) 0%, rgba(62, 66, 94, 0.3519782913165266) 100%);
+    border-top-right-radius: 60px;
+    border-bottom-left-radius: 60px;
+    box-shadow: inset -1px -1px 4px rgb(248, 248, 248), inset 1px 1px 4px rgb(0, 0, 0), -1px -1px 4px rgb(248, 248, 248), 1px 1px 4px rgb(0, 0, 0);
+    border-top-right-radius: 60px;
+    border-bottom-left-radius: 60px;
+}
+
+.insertform {
+    width: 700px;
+}
+
+.clr {
+    background: rgb(62, 66, 94);
+    background: linear-gradient(0deg, rgba(62, 66, 94, 0.35477941176470584) 0%, rgba(62, 66, 94, 0.3519782913165266) 100%);
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    box-shadow: inset -1px -1px 4px rgb(248, 248, 248), inset 1px 1px 4px rgb(0, 0, 0), -1px -1px 4px rgb(248, 248, 248), 1px 1px 4px rgb(0, 0, 0);
+}
+
+.clr:hover {
+    box-shadow: inset 1px 1px 4px rgb(248, 248, 248), inset -1px -1px 4px rgb(0, 0, 0), 1px 1px 4px rgb(248, 248, 248), -1px -1px 4px rgb(0, 0, 0);
+}
+
+.nclr {
+    background: rgb(0, 0, 0);
+    background: linear-gradient(184deg, rgba(0, 0, 0, 0.5536589635854341) 0%, rgba(252, 252, 252, 0.5116421568627452) 100%);
+    color: white;
+}
+
+input,
+textarea {
+    box-shadow: inset -1px -1px 4px rgb(248, 248, 248), inset 1px 1px 4px rgb(0, 0, 0), -1px -1px 4px rgb(248, 248, 248), 1px 1px 4px rgb(0, 0, 0);
+}
+
+input:hover,
+textarea:hover {
+    box-shadow: inset 1px 1px 4px rgb(248, 248, 248), inset -1px -1px 4px rgb(0, 0, 0), 1px 1px 4px rgb(248, 248, 248), -1px -1px 4px rgb(0, 0, 0);
+}
+
+.mbtn {
+    width: 6rem;
+    height: 2rem;
+    box-shadow: inset -1px -1px 4px rgb(248, 248, 248), inset 1px 1px 4px rgb(0, 0, 0), -1px -1px 4px rgb(248, 248, 248), 1px 1px 4px rgb(0, 0, 0);
+    border-top-right-radius: 15px;
+    border-radius: 15px;
+    background-color: transparent;
+    outline: transparent;
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.mbtn:hover {
+    box-shadow: inset 1px 1px 4px rgb(248, 248, 248), inset -1px -1px 4px rgb(0, 0, 0), 1px 1px 4px rgb(248, 248, 248), -1px -1px 4px rgb(0, 0, 0);
+}
+
+.btnm {
+    width: 4rem;
+    height: 25px;
+    box-shadow: inset -1px -1px 4px rgb(248, 248, 248), inset 1px 1px 4px rgb(0, 0, 0), -1px -1px 4px rgb(248, 248, 248), 1px 1px 4px rgb(0, 0, 0);
+    border-top-right-radius: 15px;
+    border-radius: 15px;
+    background-color: transparent;
+    outline: transparent;
+    border: none;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.btnm:hover {
+    box-shadow: inset 1px 1px 4px rgb(248, 248, 248), inset -1px -1px 4px rgb(0, 0, 0), 1px 1px 4px rgb(248, 248, 248), -1px -1px 4px rgb(0, 0, 0);
+}
+
+.modald {
+    color: white;
+    background: rgb(136, 136, 136);
+    background: linear-gradient(184deg, rgba(136, 136, 136, 0.49763655462184875) 0%, rgba(226, 226, 226, 0.4640231092436975) 28%);
+    opacity: 0.9;
+}
+
+.light {
+    /* background-color: rgb(255, 0, 0); */
+    /* background-color: transparent; */
+    background: rgb(202, 202, 202);
+    background: linear-gradient(0deg, rgb(202, 202, 202) 0%, rgb(202, 202, 202) 100%);
+}
+
+.nclr1 {
+    background: rgb(136, 136, 136);
+    background: linear-gradient(184deg, rgba(136, 136, 136, 0.5536589635854341) 0%, rgba(226, 226, 226, 0.53125) 28%);
+    color: black;
+}
+
+.mbtn1 {
+    color: rgb(0, 0, 0);
+}
+
+.lgt {
+    color: rgb(255, 255, 255);
+}
+
+.lgt1 {
+    color: rgb(0, 0, 0);
+}
+
+.text {
+    color: rgb(255, 255, 255);
+}
+
+.text1 {
+    color: black;
+}
+
+.cardm div,
+.cardm button {
+    color: rgb(255, 255, 255);
+}
+
+.cardm1 div,
+.cardm1 button {
+    color: rgb(0, 0, 0);
+}
+
+.foot {
+    margin-top: auto;
+    width: 100%;
+    height: 50px;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(184deg, rgba(0, 0, 0, 0.592874649859944) 0%, rgba(0, 0, 0, 0.5816701680672269) 17%);
+    color: white;
+    border-top: 1px solid rgb(255, 255, 255);
+}
+
+.foot1 {
+    margin-top: auto;
+    width: 100%;
+    height: 50px;
+    background: rgb(136, 136, 136);
+    border-top: 1px solid black;
+    background: linear-gradient(184deg, rgba(136, 136, 136, 0.5536589635854341) 0%, rgba(226, 226, 226, 0.53125) 28%);
+    color: white;
+}
+
+footer p {
+    line-height: 50px;
+    color: white;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    color: white;
+}
+
+.icon:hover {
+    width: 21px;
+    height: 21px;
+    color: rgb(0, 0, 0);
+}
+
+.foo {
+    color: white;
+}
+
+.foo1 {
+    /* line-height: 50px; */
+    color: rgb(0, 0, 0);
+}
+
+.icon1 {
+    width: 20px;
+    height: 20px;
+    color: rgb(0, 0, 0);
+}
+
+.icon1:hover {
+    width: 21px;
+    height: 21px;
+    color: rgb(255, 255, 255);
+}
+
+.atag {
+    text-decoration: none;
+}
