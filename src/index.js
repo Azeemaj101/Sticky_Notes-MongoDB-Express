@@ -54,22 +54,24 @@ app.post("/", (req, res) => {
 app.post("/signup", (req, res) => {
     const createDocument = async() => {
         try {
+            let user = req.body.username.toLowerCase();
             const data = new DB({
                 Name: req.body.name,
-                Username: req.body.username,
+                Username: user,
                 Password: req.body.password
             })
             req.session.views = 1;
             const result = await data.save();
+            // console.log(result)
             const getDocument1 = async() => {
                 try {
-                    const result = await DB.find({ Username: req.body.username }).select({ data: 1, Name: 1, Username: 1 });
+                    const result = await DB.find({ Username: user }).select({ data: 1, Name: 1, Username: 1 });
                     req.session.UserData = result;
                     res.redirect("/");
                     res.end();
                 } catch (err) {
                     req.session.views = 0;
-                    res.render("notes", {
+                    res.render("signup", {
                         chk: 1
                     });
 
@@ -114,7 +116,7 @@ app.get("/update", (req, res) => {
     if (req.session.views == 1) {
         const getDocument1 = async() => {
             try {
-                const result = await DB.find({ Username: req.session.UserData[0].Username }).select({ data: 1, Name: 1, Username: 1 });
+                const result = await DB.find({ Username: req.session.UserData[0].Username.toLowerCase() }).select({ data: 1, Name: 1, Username: 1 });
                 req.session.UserData = result;
                 res.redirect("/");
                 res.end();
@@ -187,7 +189,7 @@ app.post('/nupdate', (req, res) => {
                         "data.$.desc": req.body.desc1
                     }
                 });
-                console.log(result2);
+                // console.log(result2);
             } catch (err) {
                 //error
                 console.log(err)

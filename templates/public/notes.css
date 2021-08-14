@@ -43,11 +43,9 @@ body {
 main {
     background: rgb(62, 66, 94);
     background: linear-gradient(0deg, rgba(62, 66, 94, 0.35477941176470584) 0%, rgba(62, 66, 94, 0.3519782913165266) 100%);
-    border-top-right-radius: 60px;
-    border-bottom-left-radius: 60px;
+    border-top-right-radius: 40px;
+    border-bottom-left-radius: 40px;
     box-shadow: inset -1px -1px 4px rgb(248, 248, 248), inset 1px 1px 4px rgb(0, 0, 0), -1px -1px 4px rgb(248, 248, 248), 1px 1px 4px rgb(0, 0, 0);
-    border-top-right-radius: 60px;
-    border-bottom-left-radius: 60px;
 }
 
 .insertform {
