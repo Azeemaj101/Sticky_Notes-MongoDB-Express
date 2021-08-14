@@ -2,9 +2,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const bodyParser = require("body-parser");
-const request = require("request");
 const DB = require("./db");
-const mongoose = require('mongoose');
 const session = require('express-session');
 
 app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 1200000 } }))
