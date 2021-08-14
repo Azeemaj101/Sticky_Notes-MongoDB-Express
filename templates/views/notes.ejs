@@ -167,12 +167,12 @@
 
                     }
                     dt1 = new Date();
-                    dt1.setMinutes(dt1.getMinutes() + 20)
+                    dt1.setMinutes(dt1.getMinutes() + 30)
 
                     if (localStorage.getItem("key") == null || localStorage.getItem("key") == "2765") {
                         let a = localStorage.setItem("key", dt1);
                     }
-                    let res = 20 - diff_minutes(dt1, new Date(localStorage.getItem("key")));
+                    let res = 30 - diff_minutes(dt1, new Date(localStorage.getItem("key")));
                     if (res <= 0) {
                         window.location.href = "/logout"
                     }
