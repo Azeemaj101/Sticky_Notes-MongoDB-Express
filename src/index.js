@@ -27,10 +27,10 @@ app.get("/signup", (req, res) => {
 app.post("/", (req, res) => {
     const getDocument = async() => {
         try {
-            let a = await DB.find({ $and: [{ Username: req.body.username }, { Password: req.body.password }] }).select({ data: 1, Name: 1, Username: 1 }).countDocuments();
+            let a = await DB.find({ $and: [{ Username: req.body.username.toLowerCase() }, { Password: req.body.password }] }).select({ data: 1, Name: 1, Username: 1 }).countDocuments();
             if (a != 0) {
                 req.session.views = 1;
-                const result = await DB.find({ Username: req.body.username }).select({ data: 1, Name: 1, Username: 1 });
+                const result = await DB.find({ Username: req.body.username.toLowerCase() }).select({ data: 1, Name: 1, Username: 1 });
                 req.session.UserData = result;
                 res.redirect("/");
             } else {

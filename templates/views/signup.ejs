@@ -37,13 +37,13 @@
                         </div>
                         <form method="POST" action="/signup">
                             <div class="mb-3">
-                                <input type="text" class="zero" name="name" maxlength="50" required placeholder="Name" aria-describedby="emailHelp">
+                                <input type="text" class="zero" name="name" minlength="4" maxlength="25" required placeholder="Name" aria-describedby="emailHelp">
                             </div>
                             <div class="mb-3">
-                                <input type="text" class="one2" name="username" maxlength="50" required placeholder="UserName" aria-describedby="emailHelp">
+                                <input type="text" class="one2" name="username" maxlength="25" minlength="4" required placeholder="UserName" aria-describedby="emailHelp">
                             </div>
                             <div class="mb-3">
-                                <input type="password" maxlength="50" required class="two" name="password" placeholder="Password">
+                                <input type="password" maxlength="25" minlength="4" required class="two" name="password" placeholder="Password">
                             </div>
                             <div class="mb-3 form-switch">
                                 <input class="form-check-input" onChange=ab() type="checkbox" id="agreed"> <span id="text" class="text">Dark Mode</span>

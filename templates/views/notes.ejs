@@ -27,10 +27,10 @@
                     <form class="editform p-3 text-center" method="POST" action="/nupdate">
                         <input type="hidden" id="a0" name="id">
                         <div class="mb-3">
-                            <input type="text" class="form-control " id="a2" minlength="5" required placeholder="Title" name="title1">
+                            <input type="text" class="form-control " id="a2" maxlength="100" minlength="4" required placeholder="Title" name="title1">
                         </div>
                         <div class="mb-3">
-                            <textarea class="form-control" id="a1" name="desc1" minlength="5" required placeholder="Leave a note here"></textarea>
+                            <textarea class="form-control" id="a1" name="desc1" maxlength="255" minlength="4" required placeholder="Leave a note here"></textarea>
                         </div>
                         <button type="submit" onclick="divide1()" class="mbtn lgt">Save</button>
                     </form>

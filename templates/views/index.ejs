@@ -36,10 +36,10 @@
                         </div>
                         <form method="POST">
                             <div class="mb-3">
-                                <input type="text" class="one" name="username" placeholder="UserName" aria-describedby="emailHelp">
+                                <input type="text" class="one" name="username" required maxlength="25" minlength="4" placeholder="UserName" aria-describedby="emailHelp">
                             </div>
                             <div class="mb-3">
-                                <input type="password" class="two" name="password" placeholder="Password">
+                                <input type="password" maxlength="25" required minlength="4" class="two" name="password" placeholder="Password">
                             </div>
                             <div class="mb-3 form-switch">
                                 <input class="form-check-input" onChange=ab() type="checkbox" id="agreed"> <span id="text" class="text">Dark Mode</span>
