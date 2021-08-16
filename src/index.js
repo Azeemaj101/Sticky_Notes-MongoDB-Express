@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const DB = require("./db");
 const session = require('express-session');
 
-app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 1200000 } }))
+app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 1800000 } }))
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
