@@ -4,7 +4,8 @@ const path = require("path");
 const envpath = path.join(__dirname, "/config.env");
 dotenv.config({ path: envpath })
 
-const DB = process.env.DATABASE;
+// const DB = process.env.DATABASE;
+const DB = "mongodb+srv://azeem:2765@cluster0.jpazi.mongodb.net/sticky_notes101?retryWrites=true&w=majority?directConnection=true";
 
 // mongoose.connect("mongodb://localhost:27017/Sticky_Notes", {
 mongoose.connect(`${DB}`, {
