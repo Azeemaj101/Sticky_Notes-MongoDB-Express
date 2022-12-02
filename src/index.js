@@ -9,7 +9,7 @@ app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 1800000 } }))
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
-let Port = process.env.PORT || 8000;
+let Port = process.env.PORT || 5000;
 
 let temp_path = path.join(__dirname, "..", "templates", "views");
 const static_path = path.join(__dirname, "..", "templates");
